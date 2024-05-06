@@ -12,7 +12,8 @@ const WebSignup = () => {
         width={200}
         height={432}
       />
-      <div className="absolute top-[39px] left-[709px] w-[435px] h-[135px] ml-24 flex flex-col items-center justify-start gap-[16px]">
+      {/* Conditionally render the form based on screen size */}
+      <div className="absolute top-[39px] left-[709px] w-[435px] h-[135px] ml-24 flex flex-col items-center justify-start gap-[16px] lg:hidden">
         <div className="flex flex-row items-center justify-center gap-[9px]">
           <div className="relative tracking-[0.06em]">Lo</div>
           <div className="rounded-[11.99px] bg-primary flex flex-row items-start justify-start py-1.5 px-3">
