@@ -6,13 +6,13 @@ const WebSignup = () => {
   return (
     <div className="w-full relative bg-gray-100 h-[832px] overflow-hidden text-left text-17xl text-white font-motley-forces">
       <Image
-        className="absolute top-[0px] left-[0px] w-[640px] h-[832px] object-cover"
+        className="absolute top-[0px] left-[0px] w-[690px] h-[832px] object-cover"
         alt=""
         src="/img.jpeg"
-        width={400}
+        width={200}
         height={432}
       />
-      <div className="absolute top-[39px] left-[709px] w-[435px] h-[135px] flex flex-col items-center justify-start gap-[16px]">
+      <div className="absolute top-[39px] left-[709px] w-[435px] h-[135px] ml-24 flex flex-col items-center justify-start gap-[16px]">
         <div className="flex flex-row items-center justify-center gap-[9px]">
           <div className="relative tracking-[0.06em]">Lo</div>
           <div className="rounded-[11.99px] bg-primary flex flex-row items-start justify-start py-1.5 px-3">
@@ -23,7 +23,7 @@ const WebSignup = () => {
           Journey to a trillion miles starts from here!!
         </div>
       </div>
-      <div className="absolute top-[calc(50%_-_200px)] left-[765px] rounded-[30px] bg-gray-300 flex flex-row items-start justify-start py-[30px] px-10 text-center text-5xl font-header-2 border-[1px] border-solid border-gray-200">
+      <div className="absolute top-[calc(50%_-_200px)] left-[765px] rounded-[30px] ml-24 bg-gray-300 flex flex-row items-start justify-start py-[30px] px-10 text-center text-5xl font-header-2 border-[1px] border-solid border-gray-200">
         <div className="flex flex-col items-center justify-start gap-[71px]">
           <div className="flex flex-col items-center justify-start gap-[8px]">
             <div className="relative tracking-[0.06em] leading-[140%] font-semibold">

@@ -1,20 +1,11 @@
 import type { NextPage } from "next";
 import Image from "next/image";
+import Navbar from "./navbar";
 
 const WebHome: NextPage = () => {
   return (
-    <div className="w-full relative bg-bg-color h-[832px] overflow-hidden text-left text-xl text-primary font-header-2">
-      <div className="absolute top-0 left-0 w-full h-[74px] bg-bg-color border-b-[2px] border-solid border-border">
-        <b className="absolute top-[21px] right-[80px] tracking-[0.06em]">
-          Sign Out
-        </b>
-        <div className="absolute top-[21px] left-[80px] flex items-center gap-2 lg:gap-6 text-5xl text-white font-motley-forces">
-          <div className="relative tracking-[0.06em]">Lo</div>
-          <div className="rounded-lg bg-primary flex items-start justify-start py-1 px-2">
-            <div className="relative tracking-[0.06em] uppercase">Go</div>
-          </div>
-        </div>
-      </div>
+    <>
+      <Navbar />
       <div className="absolute top-[102px] left-[80px] flex flex-col items-start justify-start text-white">
         <div className="flex flex-col items-start justify-start gap-[20px]">
           <div className="w-[1120px] flex flex-row items-center justify-between">
@@ -150,7 +141,7 @@ const WebHome: NextPage = () => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
