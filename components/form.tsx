@@ -9,8 +9,8 @@ const WebSignup = () => {
         className="absolute top-[0px] left-[0px] w-[640px] h-[832px] object-cover"
         alt=""
         src="/img.jpeg"
-        width={640}
-        height={832}
+        width={400}
+        height={432}
       />
       <div className="absolute top-[39px] left-[709px] w-[435px] h-[135px] flex flex-col items-center justify-start gap-[16px]">
         <div className="flex flex-row items-center justify-center gap-[9px]">
