@@ -1,142 +1,143 @@
-import type { NextPage } from "next";
+"use client";
+"use client";
+import { NextPage } from "next";
 import Image from "next/image";
+import { useRef } from "react";
 import Navbar from "./navbar";
 
 const WebHome: NextPage = () => {
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const scrollLeft = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollLeft -= 200;
+    }
+  };
+
+  const scrollRight = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollLeft += 200;
+    }
+  };
+
   return (
     <>
       <Navbar />
       <div className="absolute top-[102px] left-[80px] flex flex-col items-start justify-start text-white">
-        <div className="flex flex-col items-start justify-start gap-[20px]">
-          <div className="w-[1120px] flex flex-row items-center justify-between">
-            <div className="relative tracking-[0.06em] leading-[140%] font-semibold">
-              Popular Topics 🔥
-            </div>
-            <div className="w-20 flex flex-row items-center justify-between">
-              <div className="w-[30px] relative h-[30px]">
-                <div className="absolute h-[106.67%] w-[106.67%] top-[-3.33%] right-[-3.33%] bottom-[-3.33%] left-[-3.33%] rounded-md bg-bg-color box-border border-[1px] border-solid border-border" />
-                <div className="absolute h-2/5 w-3/5 top-[30%] right-[20%] bottom-[30%] left-[20%]">
-                  <Image
-                    className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] max-w-full overflow-hidden max-h-full object-contain"
-                    alt=""
-                    src=""
-                    width={30}
-                    height={30}
-                  />
-                </div>
-              </div>
-              <div className="w-[30px] relative h-[30px]">
-                <div className="absolute h-[106.67%] w-[106.67%] top-[-3.33%] right-[-3.33%] bottom-[-3.33%] left-[-3.33%] rounded-md bg-bg-color box-border border-[1px] border-solid border-border" />
-                <div className="absolute h-2/5 w-3/5 top-[30%] right-[20%] bottom-[30%] left-[20%]">
-                  <div className="absolute h-[26.67%] w-full top-[36.67%] right-[0%] bottom-[36.67%] left-[0%]">
-                    <div className="absolute h-full w-full top-[0%] right-[0%] bottom-[0%] left-[0%] rounded-[1px] bg-white" />
-                  </div>
-                  <Image
-                    className="absolute top-[0px] left-[11px] w-1.5 h-3"
-                    alt=""
-                    src="/Group 56"
-                    width={30}
-                    height={30}
-                  />
-                </div>
-              </div>
-            </div>
+        <div className="flex items-center justify-between w-full px-4">
+          <div className="relative tracking-[0.06em] leading-[140%] font-semibold">
+            Popular Topics 🔥
           </div>
-          <div className="w-[1120px] relative h-[222px] overflow-x-auto shrink-0 text-center text-base">
-            <div className="absolute top-[0px] left-[0px] flex flex-row items-start justify-start gap-[20px]">
-              <div className="w-[360px] relative h-[222px]">
-                <div className="absolute top-[-1px] left-[-1px] rounded-xl bg-bg-color box-border w-[362px] h-56 border-[1px] border-solid border-border" />
-                <div className="absolute top-[162px] left-[12px] w-[336px] h-12">
-                  <div className="absolute top-[0px] left-[0px] rounded-lg bg-bg-color box-border w-[338px] h-[50px] border-[1px] border-solid border-border" />
-                  <b className="absolute top-[13px] left-[145px] tracking-[0.06em] leading-[140%] uppercase">
-                    Read
-                  </b>
+          <div className="flex items-center gap-4 mr-12">
+            <button onClick={scrollLeft}>{"<-"}</button>
+            <button onClick={scrollRight}>{"->"}</button>
+          </div>
+        </div>
+        <div className="w-full overflow-x-auto mt-4" ref={scrollRef}>
+          <div className="flex flex-row items-center justify-start gap-4 px-4 mt-12">
+            {/* Card 1 */}
+            <div className="w-[280px] relative h-[222px] ml-12">
+              <div className="absolute top-[-1px] left-[-1px] rounded-xl bg-bg-color box-border w-[282px] h-56 border-[1px] border-solid border-border" />
+              <div className="absolute top-[162px] left-[12px] w-[266px] h-12">
+                <div className="absolute top-[0px] left-[0px] rounded-lg bg-bg-color box-border w-[268px] h-[50px] border-[1px] border-solid border-border" />
+                <b className="absolute top-[13px] left-[110px] tracking-[0.06em] leading-[140%] uppercase">
+                  Read
+                </b>
+              </div>
+              <div className="absolute top-[54px] left-[110px] flex flex-col items-start justify-start gap-[8px] text-left">
+                <div className="w-52 mr-12 relative tracking-[0.06em] leading-[140%] font-semibold inline-block">
+                  Rocket Science
                 </div>
-                <div className="absolute top-[12px] left-[140px] flex flex-col items-start justify-start gap-[8px] text-left">
-                  <div className="w-52 relative tracking-[0.06em] leading-[140%] font-semibold inline-block">
-                    Introduction to Rocket Science
-                  </div>
-                  <div className="w-52 relative text-xs tracking-[0.06em] leading-[140%] text-gray-400 inline-block">{`Covers fundamentals, design, construction, operation and programming of robots. Covers fundamentals, design, construction, operation and `}</div>
-                </div>
-                <div className="absolute top-[21px] left-[12px] w-[120px] h-[120px]">
-                  <Image
-                    className="absolute top-[0px] left-[0px] w-[120px] h-[120px] object-cover"
-                    alt=""
-                    src="/rocket.png"
-                    width={120}
-                    height={120}
-                  />
+                <div className="w-52 mr-36 relative text-xs tracking-[0.06em] leading-[140%] text-gray-400 inline-block">
+                  Covers fundamentals, construction, operation, programming of
+                  robots.
                 </div>
               </div>
-              <div className="w-[360px] relative h-[222px]">
-                <div className="absolute top-[-1px] left-[-1px] rounded-xl bg-bg-color box-border w-[362px] h-56 border-[1px] border-solid border-border" />
-                <div className="absolute top-[162px] left-[12px] w-[336px] h-12">
-                  <div className="absolute top-[0px] left-[0px] rounded-lg bg-bg-color box-border w-[338px] h-[50px] border-[1px] border-solid border-border" />
-                  <b className="absolute top-[13px] left-[145px] tracking-[0.06em] leading-[140%] uppercase">
-                    Read
-                  </b>
-                </div>
-                <div className="absolute top-[12px] left-[140px] flex flex-col items-start justify-start gap-[8px] text-left">
-                  <div className="w-52 relative tracking-[0.06em] leading-[140%] font-semibold inline-block">
-                    Astro Physics
-                  </div>
-                  <div className="w-52 relative text-xs tracking-[0.06em] leading-[140%] text-gray-400 inline-block">{`Covers fundamentals, design, construction, operation and programming of robots. Covers fundamentals, design, construction, operation and `}</div>
-                </div>
-                <Image
-                  className="absolute top-[21px] left-[12px] w-[120px] h-[120px] object-cover"
-                  alt=""
-                  src="/atom.png"
-                  width={120}
-                  height={120}
-                />
+              <Image
+                className="absolute top-[21px] left-[12px] w-[80px] h-[120px] object-cover"
+                alt=""
+                src="/rocket.png"
+                width={80}
+                height={120}
+              />
+            </div>
+            {/* Card 2 */}
+            <div className="w-[280px] relative h-[222px] ml-12">
+              <div className="absolute top-[-1px] left-[-1px] rounded-xl bg-bg-color box-border w-[282px] h-56 border-[1px] border-solid border-border" />
+              <div className="absolute top-[162px] left-[12px] w-[266px] h-12">
+                <div className="absolute top-[0px] left-[0px] rounded-lg bg-bg-color box-border w-[268px] h-[50px] border-[1px] border-solid border-border" />
+                <b className="absolute top-[13px] left-[110px] tracking-[0.06em] leading-[140%] uppercase">
+                  Read
+                </b>
               </div>
-              <div className="w-[360px] relative h-[222px]">
-                <div className="absolute top-[-1px] left-[-1px] rounded-xl bg-bg-color box-border w-[362px] h-56 border-[1px] border-solid border-border" />
-                <div className="absolute top-[162px] left-[12px] w-[336px] h-12">
-                  <div className="absolute top-[0px] left-[0px] rounded-lg bg-bg-color box-border w-[338px] h-[50px] border-[1px] border-solid border-border" />
-                  <b className="absolute top-[13px] left-[calc(50%_-_23px)] tracking-[0.06em] leading-[140%] uppercase">
-                    Read
-                  </b>
+              <div className="absolute top-[54px] left-[110px] flex flex-col items-start justify-start gap-[8px] text-left">
+                <div className="w-52 relative tracking-[0.06em] leading-[140%] font-semibold inline-block">
+                  Astro Physics
                 </div>
-                <div className="absolute top-[12px] left-[140px] flex flex-col items-start justify-start gap-[8px] text-left">
-                  <div className="w-52 relative tracking-[0.06em] leading-[140%] font-semibold inline-block">
-                    Artificial Intelligence
-                  </div>
-                  <div className="w-52 relative text-xs tracking-[0.06em] leading-[140%] text-gray-400 inline-block">
-                    Covers fundamentals, design, construction, operation and
-                    programming of robots.
-                  </div>
+                <div className="w-52 mr-24 relative text-xs tracking-[0.06em] leading-[140%] text-gray-400 inline-block">
+                  Covers fundamentals, construction, operation programming of
+                  robots.
                 </div>
-                <Image
-                  className="absolute top-[21px] left-[12px] w-[120px] h-[120px] object-cover"
-                  alt=""
-                  src="/AI.png"
-                  width={120}
-                  height={120}
-                />
               </div>
-              <div className="w-[360px] relative h-[222px]">
-                <div className="absolute top-[-1px] left-[-1px] rounded-xl bg-bg-color box-border w-[362px] h-56 border-[1px] border-solid border-border" />
-                <div className="absolute top-[162px] left-[12px] w-[336px] h-12">
-                  <div className="absolute top-[0px] left-[0px] rounded-lg bg-bg-color box-border w-[338px] h-[50px] border-[1px] border-solid border-border" />
-                  <b className="absolute top-[13px] left-[calc(50%_-_23px)] tracking-[0.06em] leading-[140%] uppercase">
-                    Read
-                  </b>
-                </div>
-                <div className="absolute top-[12px] left-[140px] flex flex-col items-start justify-start gap-[8px] text-left">
-                  <div className="w-52 relative tracking-[0.06em] leading-[140%] font-semibold inline-block">
-                    Astro Physics
-                  </div>
-                  <div className="w-52 relative text-xs tracking-[0.06em] leading-[140%] text-gray-400 inline-block">{`Covers fundamentals, design, construction, operation and programming of robots. Covers fundamentals, design, construction, operation and `}</div>
-                </div>
-                <Image
-                  className="absolute top-[21px] left-[12px] w-[120px] h-[120px] object-cover"
-                  alt=""
-                  src="/rocket.png"
-                  width={120}
-                  height={120}
-                />
+              <Image
+                className="absolute top-[21px] left-[12px] w-[80px] h-[120px] object-cover"
+                alt=""
+                src="/rocket.png"
+                width={80}
+                height={120}
+              />
+            </div>
+            {/* Card 3 */}
+            <div className="w-[280px] relative h-[222px] ml-12">
+              <div className="absolute top-[-1px] left-[-1px] rounded-xl bg-bg-color box-border w-[282px] h-56 border-[1px] border-solid border-border" />
+              <div className="absolute top-[162px] left-[12px] w-[266px] h-12">
+                <div className="absolute top-[0px] left-[0px] rounded-lg bg-bg-color box-border w-[268px] h-[50px] border-[1px] border-solid border-border" />
+                <b className="absolute top-[13px] left-[110px] tracking-[0.06em] leading-[140%] uppercase">
+                  Read
+                </b>
               </div>
+              <div className="absolute top-[54px] left-[110px] flex flex-col items-start justify-start gap-[8px] text-left">
+                <div className="w-52 mr-24 relative tracking-[0.06em] leading-[140%] font-semibold inline-block">
+                  AI
+                </div>
+                <div className="w-52 mr-36 relative text-xs tracking-[0.06em] leading-[140%] text-gray-400 inline-block">
+                  Covers fundamentals, construction, operation programming of
+                  robots.
+                </div>
+              </div>
+              <Image
+                className="absolute top-[21px] left-[12px] w-[80px] h-[120px] object-cover"
+                alt=""
+                src="/rocket.png"
+                width={80}
+                height={120}
+              />
+            </div>
+            {/* Card 4 */}
+            <div className="w-[280px] relative h-[222px] ml-12">
+              <div className="absolute top-[-1px] left-[-1px] rounded-xl bg-bg-color box-border w-[282px] h-56 border-[1px] border-solid border-border" />
+              <div className="absolute top-[162px] left-[12px] w-[266px] h-12">
+                <div className="absolute top-[0px] left-[0px] rounded-lg bg-bg-color box-border w-[268px] h-[50px] border-[1px] border-solid border-border" />
+                <b className="absolute top-[13px] left-[110px] tracking-[0.06em] leading-[140%] uppercase">
+                  Read
+                </b>
+              </div>
+              <div className="absolute top-[54px] left-[110px] flex flex-col items-start justify-start gap-[8px] text-left">
+                <div className="w-52 relative tracking-[0.06em] leading-[140%] font-semibold inline-block">
+                  Advanced Robotics
+                </div>
+                <div className="w-52 mr-24 relative text-xs tracking-[0.06em] leading-[140%] text-gray-400 inline-block">
+                  Covers advanced topics in robotics, including Ml and computer vision
+                  
+                </div>
+              </div>
+              <Image
+                className="absolute top-[21px] left-[12px] w-[80px] h-[120px] object-cover"
+                alt=""
+                src="/rocket.png"
+                width={80}
+                height={120}
+              />
             </div>
           </div>
         </div>
